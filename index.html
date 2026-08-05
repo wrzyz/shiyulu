@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="拾语录，收集那些值得被记住的温柔话语。">
+  <meta name="theme-color" content="#eef2ee">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="拾语录 · 句子档案馆">
+  <meta property="og:description" content="按心情拾一句话，收藏、记录，并在需要时重新遇见。">
+  <meta property="og:image" content="assets/warmth-note.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <title>拾语录 · 收集被生活照亮的句子</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/extra.css">
+  <link rel="stylesheet" href="css/stories.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"拾语录","description":"收集被生活照亮的句子","inLanguage":"zh-CN"}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="online-status" id="onlineStatus" hidden></div>
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark">拾</span>
+        <span class="brand-copy"><strong>拾语录</strong><small>SHIYU ARCHIVE · 句子档案馆</small></span>
+      </a>
+      <div class="masthead-meta" aria-hidden="true">
+        <span id="mastheadDate">二〇二六年八月三日</span>
+        <span>第 001 期 · 今日拾得一句</span>
+      </div>
+      <nav class="main-nav" aria-label="主导航">
+        <a class="active" href="#top">首页</a>
+        <a href="#explore">分类</a>
+        <a href="#stories">故事</a>
+        <a href="#collection" data-nav="saved">收藏</a>
+        <a href="#about">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" id="profileBtn" type="button" aria-label="打开我的拾取档案" title="我的档案">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path></svg>
+        </button>
+        <button class="icon-button font-button" id="fontMinus" type="button" aria-label="缩小字号" title="缩小字号">A−</button>
+        <button class="icon-button font-button" id="fontPlus" type="button" aria-label="放大字号" title="放大字号">A+</button>
+        <button class="icon-button" id="themeToggle" type="button" aria-label="切换夜间模式" title="夜间模式">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"></path></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        </button>
+        <button class="icon-button" id="openSearch" type="button" aria-label="打开搜索" title="搜索">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
+        </button>
+        <button class="icon-button menu-button" id="menuToggle" type="button" aria-label="打开导航" aria-controls="mobileNav" aria-expanded="false" title="导航">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="移动端导航" aria-hidden="true">
+    <div class="mobile-nav-head"><span>拾语录 · 导航</span><button class="icon-button mobile-nav-close" id="mobileNavClose" type="button" aria-label="关闭导航">×</button></div>
+    <a href="#top">首页</a>
+    <a href="#explore">分类</a>
+    <a href="#stories">故事</a>
+    <a href="#collection" data-nav="saved">收藏</a>
+    <a href="#about">关于</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <img class="hero-photo" src="assets/warmth-note.png" alt="写满今日语录的手写笔记本">
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="hero-side-note" aria-hidden="true">手写原稿 · NO.001</div>
+      <div class="hero-inner">
+        <div class="hero-folio">
+          <span class="hero-folio-name">句子档案馆 <i>· SHIYU ARCHIVE</i></span>
+          <span class="hero-folio-issue"><b id="heroDate">VOL. 001</b><i>·</i><em id="heroClock">午后 · 宜小憩</em></span>
+        </div>
+        <div class="hero-copy">
+          <h1>拾语录</h1>
+          <p class="hero-subline">把心里的话，<em>拾起来。</em></p>
+          <div class="hero-today">
+            <span class="hero-card-mark" aria-hidden="true">“</span>
+            <div class="hero-today-head">
+              <span class="hero-quote-label">今日拾得 · <b id="heroDailyTag">每日语录</b></span>
+              <span class="hero-today-actions">
+                <button class="hero-icon-btn" id="heroListen" type="button" title="朗读这句话">朗读 <span>♪</span></button>
+                <button class="hero-icon-btn" id="heroCopy" type="button" title="复制这句话">复制 <span>⧉</span></button>
+                <button class="save-button hero-save" id="heroDailySave" data-id="daily-1" type="button" title="收藏这句话"><span class="heart">♡</span>收藏</button>
+                <button class="hero-icon-btn" id="heroShuffle" type="button" title="随机换一句">换一句 <span>↻</span></button>
+                <button class="hero-icon-btn" id="heroDailyShare" type="button" data-share="你坚定地走向我，我热烈地回应你。 · You walk firmly toward me, and I respond to you with all my warmth." title="分享这句话">分享 <span>↗</span></button>
+              </span>
+            </div>
+            <p class="hero-quote-cn" id="heroDailyQuote">你坚定地走向我，我热烈地回应你。</p>
+            <p class="hero-quote-en" id="heroDailyEn">You walk firmly toward me, and I respond to you with all my warmth.</p>
+            <div class="hero-meaning">
+              <span>这句话想说</span>
+              <p id="heroDailyMeaning">这是一场双向奔赴：你愿意坚定地走向我，我也愿意把真诚和热烈交给你。</p>
+            </div>
+            <div class="hero-card-foot">
+              <span>拾语录 · 今日一页</span>
+              <span>适合在：<b id="heroDailyScene">任何想被一句话轻轻接住的时刻</b></span>
+            </div>
+          </div>
+          <p class="hero-lead">有些话不是第一次读懂，而是在某一天，终于被它说中。</p>
+          <div class="hero-actions">
+            <a class="hero-cta" href="#daily">读今日语录 <span>↘</span></a>
+            <a class="hero-link" href="#explore">按心情拾取 <span>→</span></a>
+          </div>
+          <div class="hero-moods">
+            <span class="hero-moods-label">此刻心情</span>
+            <div class="hero-mood-chips">
+              <button type="button" data-hero-mood="治愈">温柔</button>
+              <button type="button" data-hero-mood="勇气">勇气</button>
+              <button type="button" data-hero-mood="爱情">想念</button>
+              <button type="button" data-hero-mood="孤独">孤独</button>
+              <button type="button" data-hero-mood="希望">希望</button>
+              <button type="button" data-hero-mood="夜晚">夜晚</button>
+            </div>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="档案馆侧栏">
+          <div class="hero-panel-head">
+            <span>档案馆侧栏</span>
+            <span>ARCHIVE INDEX</span>
+          </div>
+          <div class="hero-checkin">
+            <div class="hero-checkin-copy">
+              <b id="heroCheckinText">今日打卡 · 待开始</b>
+              <p>每天一句，坚持拾取</p>
+            </div>
+            <button class="hero-checkin-btn" id="heroCheckinBtn" type="button">打卡</button>
+          </div>
+          <div class="hero-panel-block">
+            <h3>今日相关 <span>RELATED</span></h3>
+            <ul class="hero-quote-list" id="heroRelatedList"></ul>
+          </div>
+          <div class="hero-panel-block">
+            <h3>最近收藏 <span>SAVED</span></h3>
+            <ul class="hero-quote-list" id="heroSavedList"></ul>
+          </div>
+        </aside>
+      </div>
+      <div class="hero-ticker" aria-hidden="true">
+        <div class="hero-ticker-track"></div>
+      </div>
+      <nav class="hero-toc" aria-label="本页目录">
+        <a href="#daily"><span>01</span>今日语录</a>
+        <a href="#explore"><span>02</span>按心情拾取</a>
+        <a href="#picks"><span>03</span>编辑精选</a>
+        <a href="#stories"><span>04</span>小故事</a>
+        <a href="#community"><span>05</span>大家拾到的</a>
+        <a href="#about"><span>06</span>关于</a>
+      </nav>
+    </section>
+
+    <aside class="resume-reading section-wrap" id="resumeReading" hidden aria-live="polite">
+      <div><span>继续上次阅读</span><p id="resumeQuote"></p></div>
+      <div class="resume-actions"><button id="resumeOpen" type="button">继续读 <span>→</span></button><button id="resumeDismiss" type="button" aria-label="暂时隐藏继续阅读">×</button></div>
+    </aside>
+
+    <section class="mood-compass section-wrap" id="moodCompass" aria-labelledby="moodCompassTitle">
+      <div class="mood-compass-copy">
+        <p class="eyebrow">A NOTE FOR THIS MOMENT</p>
+        <h2 id="moodCompassTitle">此刻，你想被怎样接住？</h2>
+        <p>选一种需要，档案馆会从一千多句话里，为你拾起更贴近此刻的一句。</p>
+        <div class="mood-compass-options" role="group" aria-label="选择此刻需要">
+          <button class="active" type="button" data-mood-intent="安慰" data-category-pool="治愈,亲情,友谊">想被安慰</button>
+          <button type="button" data-mood-intent="勇气" data-category-pool="勇气,成长,希望">想找勇气</button>
+          <button type="button" data-mood-intent="想念" data-category-pool="爱情,亲情,友谊">正在想念</button>
+          <button type="button" data-mood-intent="安静" data-category-pool="禅意,夜晚,自然">想安静一下</button>
+        </div>
+      </div>
+      <article class="mood-result" id="moodResult" aria-live="polite">
+        <div class="mood-result-top"><span id="moodResultLabel">此刻的一句</span><button id="moodRefresh" type="button">再拾一句 ↻</button></div>
+        <blockquote id="moodResultQuote">慢一点也没关系，你不必现在就解决所有问题。</blockquote>
+        <p id="moodResultEn">It is okay to move slowly. You do not have to solve everything now.</p>
+        <div class="mood-result-foot"><span id="moodResultMeta">治愈 · 慢慢来</span><div><button id="moodOpen" type="button">读懂这句</button><button id="moodSave" type="button">♡ 收藏</button></div></div>
+      </article>
+    </section>
+
+    <section class="daily section-wrap" id="daily">
+
+    <section class="mood-letter section-wrap" id="moodLetter" aria-labelledby="moodLetterTitle">
+      <div class="mood-letter-heading"><div><p class="eyebrow">A NOTE FOR YOURSELF</p><h2 id="moodLetterTitle">给此刻的自己留一句话</h2></div><button class="sort-button" id="moodLetterNew" type="button">换一句 <span>↻</span></button></div>
+      <div class="mood-letter-grid">
+        <article class="mood-letter-card">
+          <span class="mood-letter-stamp">此刻短笺</span>
+          <p class="mood-letter-tag" id="moodLetterTag">治愈 · 温柔</p>
+          <blockquote id="moodLetterText" aria-live="polite">今天先照顾自己，再照顾世界。</blockquote>
+          <p class="mood-letter-note" id="moodLetterNote">你已经走了很远，今晚可以慢一点。</p>
+          <div class="mood-letter-actions"><button id="moodLetterCopy" type="button">复制短笺 <span>↗</span></button><button id="moodLetterListen" type="button">读给我听 <span>♪</span></button></div>
+        </article>
+        <div class="breathe-card">
+          <span class="breathe-label">陪自己呼吸一次</span>
+          <div class="breathe-ring" id="breatheRing" aria-hidden="true"><span id="breatheCount">3</span></div>
+          <button id="breatheStart" type="button">开始 <span>↘</span></button>
+        </div>
+      </div>
+    </section>
+      <div class="section-heading"><span class="section-index">01</span><div><p class="eyebrow">THE DAILY NOTE</p><h2>今日语录</h2></div><span class="heading-rule"></span><span class="heading-meta">每日更新</span></div>
+      <article class="daily-card">
+        <div class="daily-side">
+          <span class="side-label">拾语录 · DAILY</span>
+          <span class="side-mark">“</span>
+          <span class="side-note" id="dailySideNote">一句刚好被需要的温柔</span>
+        </div>
+        <div class="daily-main">
+          <div class="daily-card-top"><span id="dailyTag">每日语录</span><button class="save-button" id="dailySaveBtn" data-id="daily-1" type="button"><span class="heart">♡</span> 收藏</button></div>
+          <blockquote id="dailyQuote">你坚定地走向我，我热烈地回应你。</blockquote>
+          <p class="daily-en" id="dailyEnglish">You walk firmly toward me, and I respond to you with all my warmth.</p>
+          <div class="daily-meaning"><span class="meaning-label">这句话想说</span><span id="dailyMeaning">这是一场双向奔赴：你愿意坚定地走向我，我也愿意把真诚和热烈交给你。</span></div>
+          <div class="daily-card-bottom"><span id="dailyFrom">拾语录 · 爱情 · 双向奔赴</span><button class="share-button" data-share="你坚定地走向我，我热烈地回应你。" type="button">分享这句话 <span>↗</span></button></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="explore section-wrap" id="explore">
+      <div class="section-heading"><span class="section-index">02</span><div><p class="eyebrow">EXPLORE BY FEELING</p><h2>按心情拾取</h2></div><span class="heading-rule"></span><span class="heading-meta">22 个分类</span></div>
+      <div class="category-grid">
+        <button class="category-card category-love active" data-category="爱情" type="button"><span class="category-number">01</span><span class="category-symbol">✳</span><strong>爱情</strong><small>关于相遇、回应与偏爱</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-growth" data-category="成长" type="button"><span class="category-number">02</span><span class="category-symbol">◒</span><strong>成长</strong><small>关于成为更好的自己</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-wisdom" data-category="哲思" type="button"><span class="category-number">03</span><span class="category-symbol">⌁</span><strong>哲思</strong><small>关于生活留下的答案</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-friend" data-category="友谊" type="button"><span class="category-number">04</span><span class="category-symbol">∞</span><strong>友谊</strong><small>关于久处不散的陪伴</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-home" data-category="亲情" type="button"><span class="category-number">05</span><span class="category-symbol">⌂</span><strong>亲情</strong><small>关于回头总在的地方</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-courage" data-category="勇气" type="button"><span class="category-number">06</span><span class="category-symbol">✦</span><strong>勇气</strong><small>关于带着害怕继续走</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-heal" data-category="治愈" type="button"><span class="category-number">07</span><span class="category-symbol">✿</span><strong>治愈</strong><small>关于停下来，好好抱抱自己</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-dream" data-category="梦想" type="button"><span class="category-number">08</span><span class="category-symbol">☾</span><strong>梦想</strong><small>关于心里那团不灭的光</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-time" data-category="时光" type="button"><span class="category-number">09</span><span class="category-symbol">◷</span><strong>时光</strong><small>关于四季、回忆与慢慢来</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-life" data-category="生活" type="button"><span class="category-number">10</span><span class="category-symbol">☕</span><strong>生活</strong><small>关于烟火气与细水长流</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-alone" data-category="孤独" type="button"><span class="category-number">11</span><span class="category-symbol">◐</span><strong>孤独</strong><small>关于一个人也要好好过</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-hope" data-category="希望" type="button"><span class="category-number">12</span><span class="category-symbol">☀</span><strong>希望</strong><small>关于天亮之前的那盏灯</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-reading" data-category="阅读" type="button"><span class="category-number">13</span><span class="category-symbol">✎</span><strong>阅读</strong><small>关于书页里的辽阔世界</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-travel" data-category="旅行" type="button"><span class="category-number">14</span><span class="category-symbol">✈</span><strong>旅行</strong><small>关于远方与重新出发</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-night" data-category="夜晚" type="button"><span class="category-number">15</span><span class="category-symbol">✶</span><strong>夜晚</strong><small>关于晚安与温柔入梦</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-nature" data-category="自然" type="button"><span class="category-number">16</span><span class="category-symbol">❀</span><strong>自然</strong><small>关于山风、草木与四季</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-work" data-category="工作" type="button"><span class="category-number">17</span><span class="category-symbol">⚙</span><strong>工作</strong><small>关于认真、节奏与平衡</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-learn" data-category="学习" type="button"><span class="category-number">18</span><span class="category-symbol">✐</span><strong>学习</strong><small>关于好奇与终身成长</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-poem" data-category="古诗词" type="button"><span class="category-number">19</span><span class="category-symbol">❦</span><strong>古诗词</strong><small>关于千年之前的心事</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-film" data-category="电影" type="button"><span class="category-number">20</span><span class="category-symbol">◉</span><strong>电影</strong><small>关于镜头里的动人时刻</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-song" data-category="歌词" type="button"><span class="category-number">21</span><span class="category-symbol">♪</span><strong>歌词</strong><small>关于旋律里藏着的情绪</small><span class="category-arrow">↗</span></button>
+        <button class="category-card category-zen" data-category="禅意" type="button"><span class="category-number">22</span><span class="category-symbol">◌</span><strong>禅意</strong><small>关于静下来与想开去</small><span class="category-arrow">↗</span></button>
+      </div>
+      <button class="category-expand" id="categoryExpand" type="button" aria-expanded="false">展开全部 22 个分类 <span>↓</span></button>
+    </section>
+
+    <section class="collection section-wrap" id="collection">
+      <div class="collection-heading"><div><p class="eyebrow">THE COLLECTION</p><h2><span id="collectionTitle">爱情</span> · 语录集</h2><span class="result-count" id="resultCount"></span></div><button class="collection-tools-toggle" id="collectionToolsToggle" type="button" aria-expanded="false" aria-controls="collectionTools">筛选与工具 <span>↓</span></button><div class="collection-tools" id="collectionTools"><label class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg><input id="quoteSearch" type="search" placeholder="搜索句子或关键词" aria-label="搜索句子或关键词"></label><button class="sort-button" id="showAll" type="button">全部语录</button><button class="sort-button" id="showSaved" type="button">我的收藏 <span>♡</span></button><select class="sort-select" id="sortSelect" aria-label="排序方式"><option value="default">默认顺序</option><option value="newest">最新加入</option><option value="random">随机排序</option></select><button class="sort-button" id="randomQuote" type="button">随机拾取 <span>↗</span></button><button class="sort-button" id="blindBox" type="button">句子盲盒 <span>✦</span></button><button class="sort-button view-toggle" id="quoteViewToggle" type="button" aria-pressed="false">列表视图</button></div></div>
+      <div class="tag-chips" id="tagChips" aria-label="标签筛选"></div>
+      <div class="tag-chips" id="fromChips" aria-label="出处筛选"></div>
+      <div class="collection-status" id="collectionStatus"><span id="filterSummary">正在浏览爱情分类</span><button id="clearFilters" type="button">清除筛选</button></div>
+      <div class="quote-list" id="quoteList" aria-live="polite"></div>
+      <button class="load-more" id="loadMore" type="button">拾取更多语录 ↓</button>
+      <div id="sentinel" aria-hidden="true"></div>
+      <div class="empty-state" id="emptyState" hidden>还没有找到这句心情，换一个关键词试试。</div>
+    </section>
+
+    <section class="picks section-wrap" id="picks">
+      <div class="section-heading"><span class="section-index">03</span><div><p class="eyebrow">EDITOR'S PICKS</p><h2>编辑精选</h2></div><span class="heading-rule"></span><span class="heading-meta">每周更新 · 3 句</span></div>
+      <div class="quote-list picks-grid" id="picksList" aria-live="polite"></div>
+    </section>
+
+    <section class="stories section-wrap" id="stories">
+      <div class="section-heading"><span class="section-index">04</span><div><p class="eyebrow">SMALL STORIES</p><h2>句子背后的小故事</h2></div><span class="heading-rule"></span><span class="heading-meta">读一篇，再拾一句</span></div>
+      <div class="story-toolbar"><div class="story-tabs" id="storyTabs"><button class="story-tab active" data-story-category="全部" type="button">全部</button><button class="story-tab" data-story-category="相遇" type="button">相遇</button><button class="story-tab" data-story-category="成长" type="button">成长</button><button class="story-tab" data-story-category="治愈" type="button">治愈</button><button class="story-tab" data-story-category="生活" type="button">生活</button><button class="story-tab" data-story-category="告别" type="button">告别</button></div><button class="sort-button" id="randomStory" type="button">随机读一篇 <span>↗</span></button></div>
+      <div class="story-grid" id="storyGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="month section-wrap" id="month">
+      <div class="section-heading"><span class="section-index">05</span><div><p class="eyebrow">THEME OF THE MONTH</p><h2>本月主题</h2></div><span class="heading-rule"></span><span class="heading-meta" id="monthLabel">每月更新</span></div>
+      <div class="month-card"><span class="month-stamp">本月</span><div class="month-quotes" id="monthList"></div></div>
+    </section>
+
+    <section class="stat-strip section-wrap" aria-label="网站数据">
+      <div><strong id="statQuotes">400</strong><span>条语录</span></div>
+      <div><strong id="statCategories">22</strong><span>个分类</span></div>
+      <div><strong id="statRead">0</strong><span>已读语录</span></div>
+      <div><strong id="statSaved">0</strong><span>我的收藏</span></div>
+      <div><strong id="statDays">1</strong><span>陪伴天数</span></div>
+    </section>
+
+    <section class="community section-wrap" id="community">
+      <div class="section-heading"><span class="section-index">06</span><div><p class="eyebrow">TOGETHER</p><h2>大家拾到的</h2></div><span class="heading-rule"></span><span class="heading-meta">留言与投稿</span></div>
+      <div class="community-grid">
+        <div class="community-panel">
+          <h3>留言板</h3>
+          <form id="noteForm">
+            <label>你的名字 <span>可选</span><input name="name" maxlength="20" placeholder="匿名"></label>
+            <label>想留下的话 <textarea name="text" maxlength="200" required placeholder="在这里留一句话……"></textarea></label>
+            <button class="form-submit" type="submit">发布留言 <span>↗</span></button>
+          </form>
+          <ul class="note-list" id="noteList" aria-live="polite"></ul>
+        </div>
+        <div class="community-panel">
+          <h3>投稿墙</h3>
+          <p class="panel-intro">大家投来的句子，会先出现在这里，再被编辑拾起。</p>
+          <ul class="note-list" id="submitList" aria-live="polite"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="submit-section section-wrap">
+      <div class="submit-copy"><p class="eyebrow">LEAVE A NOTE</p><h2>你也有一句<br><em>想被拾起的话吗？</em></h2><p>把它留在这里。也许，它刚好会成为另一个人今天需要的答案。</p></div>
+      <button class="submit-button" id="openSubmit" type="button"><span>投稿一句话</span><b>↗</b></button>
+    </section>
+
+    <section class="about-section section-wrap" id="about"><div class="about-number">07</div><div><p class="eyebrow">ABOUT SHI YU LU</p><h2>愿每一句话，<br>都有人听见。</h2></div><p class="about-text">拾语录是一间开放的句子收藏室。我们相信，文字不必宏大，它只需要在恰好的时刻，轻轻落进一个人的心里。每一句被拾起的语录，都曾照亮过某个人的某一天。</p><img class="about-photo" src="assets/warmth-note.png" alt="手写的温暖句子"></section>
+  </main>
+
+  <footer class="site-footer section-wrap"><div class="footer-brand">拾语录 <span>SHI YU LU</span></div><p>收集被生活照亮的句子</p><span>© 2026</span></footer>
+
+  <dialog class="modal profile-modal" id="profileModal">
+    <button class="modal-close" data-close="profileModal" type="button" aria-label="关闭">×</button>
+    <p class="eyebrow">YOUR READING ARCHIVE</p>
+    <h2>我的拾取档案</h2>
+    <div class="profile-summary" id="profileSummary"></div>
+    <div class="profile-block profile-preferences">
+      <div class="profile-block-heading"><h3>阅读偏好</h3><span>仅保存在当前设备</span></div>
+      <div class="preference-row"><span>正文字号</span><div class="font-stepper"><button id="profileFontMinus" type="button" aria-label="缩小正文字号">A−</button><output id="profileFontValue" aria-live="polite">16px</output><button id="profileFontPlus" type="button" aria-label="放大正文字号">A+</button></div></div>
+      <div class="preference-row"><span>阅读行距</span><div class="preference-segment" role="group" aria-label="阅读行距"><button type="button" data-reading-mode="standard" aria-pressed="true">标准</button><button type="button" data-reading-mode="relaxed" aria-pressed="false">舒展</button></div></div>
+      <div class="preference-row"><span>页面主题</span><button class="preference-theme" id="profileThemeToggle" type="button">切换为夜间模式</button></div>
+    </div>
+    <div class="profile-block profile-journal">
+      <div class="profile-block-heading"><h3>今日手记</h3><span id="journalDate"></span></div>
+      <blockquote id="journalPrompt">今天哪一句话，最接近你的心情？</blockquote>
+      <label class="visually-hidden" for="journalEntry">写下今天的手记</label>
+      <textarea id="journalEntry" maxlength="300" placeholder="写下今天想留住的心情……"></textarea>
+      <div class="journal-actions"><span id="journalCount">0 / 300</span><button class="sort-button" id="saveJournal" type="button">保存今日手记</button></div>
+      <div class="journal-history" id="journalHistory"></div>
+    </div>
+    <div class="profile-block"><h3>我的分类</h3><div class="profile-bars" id="profileCategories"></div></div>
+    <div class="profile-block"><h3>常拾取的标签</h3><div class="profile-tags" id="profileTags"></div></div>
+    <div class="profile-block"><h3>最近读过</h3><div class="profile-history" id="profileHistory"></div></div>
+    <div class="profile-block profile-backup"><h3>本地数据</h3><p class="profile-backup-note">备份会包含收藏、已读、打卡、手记、批注、留言与投稿，换设备前建议先导出。</p><div class="profile-backup-actions"><button class="sort-button" id="exportArchive" type="button">导出备份 <span>↓</span></button><label class="sort-button import-label" for="importArchive">导入备份<input type="file" id="importArchive" accept="application/json" hidden></label></div></div>
+    <button class="sort-button install-app" id="installApp" type="button" hidden>安装拾语录到设备</button>
+    <button class="form-submit profile-close" data-close="profileModal" type="button">继续拾取 <span>↗</span></button>
+  </dialog>
+
+  <dialog class="modal" id="searchModal"><button class="modal-close" data-close="searchModal" type="button" aria-label="关闭">×</button><p class="eyebrow">SEARCH THE COLLECTION</p><h2>找一句话</h2><label class="visually-hidden" for="modalSearch">搜索语录</label><input id="modalSearch" type="search" placeholder="输入关键词，例如：温柔、勇气、想念"><div class="hot-words" id="hotWords"><span>热门：</span><button data-hot="温柔" type="button">温柔</button><button data-hot="勇气" type="button">勇气</button><button data-hot="想念" type="button">想念</button><button data-hot="慢慢" type="button">慢慢</button><button data-hot="回家" type="button">回家</button><button data-hot="坚持" type="button">坚持</button></div><p class="modal-hint">搜索结果会同步显示在页面下方。</p></dialog>
+  <dialog class="modal submit-modal" id="submitModal"><button class="modal-close" data-close="submitModal" type="button" aria-label="关闭">×</button><p class="eyebrow">SHARE YOUR WORDS</p><h2>投稿一句话</h2><form id="submitForm"><label>你的句子<textarea required maxlength="120" placeholder="写下此刻想说的话……"></textarea></label><label>署名（可选）<input maxlength="30" placeholder="匿名"></label><button class="form-submit" type="submit">提交收藏 <span>↗</span></button></form><p class="modal-hint" id="submitMessage" aria-live="polite"></p></dialog>
+  <dialog class="modal quote-modal" id="quoteModal"><button class="modal-close" data-close="quoteModal" type="button" aria-label="关闭">×</button><p class="eyebrow" id="modalTag">标签</p><h2 class="modal-quote" id="modalCn">语录</h2><p class="modal-quote-en" id="modalEn">English</p><p class="modal-from">出处 · <span id="modalFrom">拾语录</span></p><div class="quote-meaning"><p class="modal-explanation-label">这句话想说</p><p class="modal-explanation" id="modalExplanation"></p><p class="modal-scene" id="modalScene"></p></div><div class="modal-actions"><button class="sort-button" id="modalSave" type="button">♡ 收藏</button><button class="sort-button" id="modalCopy" type="button">复制</button><button class="sort-button" id="modalShare" type="button">分享</button><button class="sort-button" id="modalImage" type="button">生成语录卡</button></div><div class="quote-note"><label for="quoteNote">我的句边批注</label><textarea id="quoteNote" maxlength="240" placeholder="写下此刻为什么想留住它……"></textarea><div><span id="quoteNoteCount">0 / 240</span><button class="sort-button" id="saveQuoteNote" type="button">保存批注</button></div></div><div class="related-quotes"><p class="modal-hint">相似语录</p><div id="relatedList"></div></div></dialog>
+  <dialog class="modal story-modal" id="storyModal"><button class="modal-close" data-close="storyModal" type="button" aria-label="关闭">×</button><p class="eyebrow" id="storyModalCategory">SMALL STORY</p><h2 id="storyModalTitle">故事标题</h2><p class="story-modal-meta" id="storyModalMeta"></p><div class="story-modal-body" id="storyModalBody"></div><div class="story-modal-quote" id="storyModalQuote"></div><button class="form-submit" id="storyModalCollect" type="button">拾起这句话 <span>↗</span></button></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+  <script src="js/quotes.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/extra-stories.js"></script>
+</body>
+</html>
