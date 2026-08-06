@@ -1,4 +1,4 @@
-const CACHE = 'shiyulu-v22';
+const CACHE = 'shiyulu-v23';
 const BASE = new URL('./', self.location.href);
 const OFFLINE_URL = new URL('index.html', BASE).toString();
 const ASSETS = [
@@ -8,8 +8,10 @@ const ASSETS = [
   'css/extra.css',
   'css/stories.css',
   'js/quotes.js',
+  'js/emotional-quotes.js',
   'js/script.js',
   'js/extra-stories.js',
+  'js/emotional-stories.js',
   'assets/warmth-note.png',
   'assets/icon-192.png',
   'assets/icon-512.png',
