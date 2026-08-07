@@ -55,6 +55,7 @@ body{background:var(--bg);}
   background:linear-gradient(135deg,#f7ded2 0%,#efc5b5 100%);
   border:1px solid #dfb4a3;
   box-shadow:0 22px 52px rgba(111,67,53,.16);
+  color:#382623;
 }
 .mood-letter-card:after{content:'一页给自己的话';position:absolute;right:30px;bottom:26px;color:rgba(104,66,55,.48);font:10px var(--mono);letter-spacing:.08em;writing-mode:vertical-rl;}
 .mood-letter-card:before{color:#b9513c;opacity:.16;}
