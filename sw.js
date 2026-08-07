@@ -1,4 +1,4 @@
-const CACHE = 'shiyulu-v24';
+const CACHE = 'shiyulu-v25';
 const BASE = new URL('./', self.location.href);
 const OFFLINE_URL = new URL('index.html', BASE).toString();
 const ASSETS = [
