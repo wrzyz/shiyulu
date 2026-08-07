@@ -1,1 +1,88 @@
 /* 样式已统一合并到 style.css，本文件保留用于兼容旧引用 */
+
+/* 2026 visual refresh: calm blue-grey paper, warmer focus, clearer hierarchy */
+:root{
+  --bg:#edf3f5;
+  --bg-soft:#e2ecef;
+  --surface:#fbfdfd;
+  --paper:#fffdf8;
+  --ink:#20343a;
+  --muted:#5f747b;
+  --faint:#8ca1a8;
+  --line:#d5e1e5;
+  --line-strong:#b7cbd0;
+  --accent:#e8785d;
+  --accent-deep:#c95b45;
+  --accent-soft:#f8e1da;
+  --moss:#5d8583;
+  --moss-soft:#dcebea;
+  --night:#19343a;
+  --night-2:#10272d;
+  --cream:#f5efe5;
+  --gold:#c49b5c;
+  --shadow-slip:0 12px 30px rgba(32,52,58,.08);
+  --shadow-lift:0 20px 48px rgba(32,52,58,.15);
+}
+html[data-theme="dark"]{
+  --bg:#11262c;
+  --bg-soft:#0d2025;
+  --surface:#18343a;
+  --paper:#19373d;
+  --ink:#edf5f4;
+  --muted:#adc3c5;
+  --faint:#819da1;
+  --line:#2b4a50;
+  --line-strong:#41636a;
+  --accent:#f28a6d;
+  --accent-deep:#ffab91;
+  --accent-soft:#482c29;
+  --moss:#93b8b2;
+  --moss-soft:#214347;
+  --night:#0c2026;
+  --night-2:#08181d;
+  --cream:#20373a;
+}
+
+body{background:var(--bg);}
+.site-header{background:color-mix(in srgb,var(--bg) 88%,transparent);}
+.site-header:before{background:repeating-linear-gradient(90deg,var(--night) 0 14px,transparent 14px 20px);}
+.mood-letter{padding-top:8px;}
+.mood-letter-heading{margin-bottom:30px;}
+.mood-letter-heading h2{letter-spacing:.015em;color:var(--ink);}
+.mood-letter-heading .sort-button{background:rgba(255,255,255,.44);box-shadow:0 5px 16px rgba(32,52,58,.04);}
+.mood-letter-grid{gap:20px;}
+.mood-letter-card{
+  background:linear-gradient(135deg,#18383e 0%,#1b3037 100%);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 22px 52px rgba(25,52,58,.2);
+}
+.mood-letter-card:after{content:'一页给自己的话';position:absolute;right:30px;bottom:26px;color:rgba(238,247,246,.32);font:10px var(--mono);letter-spacing:.08em;writing-mode:vertical-rl;}
+.mood-letter-card:before{color:#ef8768;opacity:.18;}
+.mood-letter-stamp{color:#f2b39e;letter-spacing:.08em;}
+.mood-letter-tag{color:#9fc0bf;}
+.mood-letter-card blockquote{color:#f7fbf9;letter-spacing:.01em;}
+.mood-letter-note{color:#c4d8d5;max-width:34em;}
+.mood-letter-actions button{color:#dcebe8;border-bottom-color:rgba(220,235,232,.35);}
+.mood-letter-actions button:hover{color:#ffae96;border-color:#ffae96;}
+.breathe-card{
+  position:relative;
+  background:linear-gradient(160deg,#f8fbfb 0%,#e6f0f2 100%);
+  border:1px solid #b9ced2;
+  box-shadow:0 12px 30px rgba(36,74,81,.1);
+  overflow:hidden;
+}
+.breathe-card:before{content:'PAUSE';position:absolute;right:18px;top:16px;color:rgba(93,133,131,.42);font:9px var(--mono);letter-spacing:.18em;}
+.breathe-copy{display:flex;flex-direction:column;gap:5px;align-items:center;}
+.breathe-label{color:#527176;font-weight:500;letter-spacing:.06em;}
+.breathe-copy small{color:#789196;font:10px var(--mono);}
+.breathe-ring{width:156px;height:156px;border:1px solid #a9c1c5;color:#d96e55;background:rgba(255,255,255,.38);box-shadow:inset 0 0 0 12px rgba(255,255,255,.2);}
+.breathe-ring.breathe-in{background:var(--accent-soft);border-color:var(--accent);box-shadow:0 0 0 12px rgba(232,120,93,.1),inset 0 0 0 12px rgba(255,255,255,.22);}
+.breathe-ring.breathe-hold{border-color:var(--gold);}
+.breathe-card button{background:var(--accent);color:#fff;border-color:var(--accent);padding:10px 22px;box-shadow:0 8px 18px rgba(201,91,69,.22);}
+.breathe-card button:hover{background:var(--accent-deep);color:#fff;border-color:var(--accent-deep);transform:translateY(-2px);}
+@media(max-width:520px){
+  .mood-letter{padding-top:0;}
+  .mood-letter-card:after{display:none;}
+  .breathe-copy small{font-size:9px;}
+}
+@media(prefers-reduced-motion:reduce){.breathe-ring{transition:none;}}
