@@ -1,9 +1,17 @@
 {
-  "buildCommand": "",
-  "outputDirectory": ".",
-  "devCommand": "node server.js",
-  "framework": null,
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/server.js" }
-  ]
+    {
+      "source": "/(.*)",
+      "destination": {
+        "type": "service",
+        "service": "web"
+      }
+    }
+  ],
+  "services": {
+    "web": {
+      "root": ".",
+      "entrypoint": "server.js"
+    }
+  }
 }
