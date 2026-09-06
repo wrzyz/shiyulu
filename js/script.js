@@ -831,7 +831,7 @@ const quoteExplanations={
   'poem-11':'一粥一饭，皆念辛苦。',
   'poem-12':'春眠鸟啼，最简单的快乐。',
   'poem-13':'山重水复，自有柳暗花明。',
-  'poem-14':'旧船侧畔千帆过，病树前头万木春。',
+  'poem-14':'沉舟侧畔千帆过，病树前头万木春。',
   'poem-15':'磨砺出锋芒，苦寒得花香。',
   'poem-16':'路远且长，上下求索。',
   'poem-17':'天生我材，必有可用。',
@@ -1160,7 +1160,7 @@ function renderQuotes(){
   if(sortMode === 'newest') filtered = [...filtered].reverse();
   if(sortMode === 'random') filtered = [...filtered].sort(() => Math.random() - 0.5);
   const shown = filtered.slice(0, visibleCount);
-  if(list) list.innerHTML = shown.map((q,index)=>`<article class="quote-item" data-quote-id="${esc(q.id)}"><div class="quote-item-top"><span>NO. ${String(index+1).padStart(2,'0')} / ${esc(q.category)}</span><span class="quote-tag">${esc(q.tag)}</span></div><div class="quote-item-body"><blockquote>“${esc(q.cn)}”</blockquote><p class="quote-en">${esc(q.en)}</p><p class="quote-card-meaning"><b>此句心解</b>${esc(getExplanation(q).slice(0,52))}${getExplanation(q).length>52?'…':''}</p></div><div class="quote-item-bottom"><span>拾语录 · ${esc(q.category)}${q.from ? ' · ' + esc(q.from) : ''}</span><span class="quote-actions"><button class="save-quote ${saved.includes(q.id)?'saved':''}" data-id="${esc(q.id)}" type="button" aria-label="收藏">${saved.includes(q.id)?'♥':'♡'}</button><button class="share-quote" data-share="${esc(q.cn)}" type="button" aria-label="分享">↗</button></span></div></article>`).join('');
+  if(list) list.innerHTML = shown.map((q,index)=>`<article class="quote-item" data-quote-id="${esc(q.id)}" style="--qcat:${categoryAccents[q.category]||defaultAccent}"><div class="quote-item-top"><span>NO. ${String(index+1).padStart(2,'0')} / ${esc(q.category)}</span><span class="quote-tag">${esc(q.tag)}</span></div><div class="quote-item-body"><blockquote>“${esc(q.cn)}”</blockquote><p class="quote-en">${esc(q.en)}</p><p class="quote-card-meaning"><b>此句心解</b>${esc(getExplanation(q).slice(0,52))}${getExplanation(q).length>52?'…':''}</p></div><div class="quote-item-bottom"><span>拾语录 · ${esc(q.category)}${q.from ? ' · ' + esc(q.from) : ''}</span><span class="quote-actions"><button class="save-quote ${saved.includes(q.id)?'saved':''}" data-id="${esc(q.id)}" type="button" aria-label="收藏">${saved.includes(q.id)?'♥':'♡'}</button><button class="share-quote" data-share="${esc(q.cn)}" type="button" aria-label="分享">↗</button></span></div></article>`).join('');
   if(empty){
     empty.hidden = filtered.length > 0;
     empty.textContent = globalQuery ? '没有找到匹配这句话的关键词，试试“温柔、勇气、想念”。' : (viewMode === 'saved' ? '还没有收藏，点击任意语录右下角的 ♡ 收藏一句吧。' : '还没有找到这句心情，换一个关键词试试。');
@@ -1196,7 +1196,7 @@ function renderPicks(){
   const picks = weeklyIds.slice(week * 3, week * 3 + 3).map(id => quotes.find(q => q.id === id)).filter(Boolean);
   const picksList = document.querySelector('#picksList');
   if(!picksList) return;
-  picksList.innerHTML = picks.map((q,index)=>`<article class="quote-item" data-quote-id="${esc(q.id)}"><div class="quote-item-top"><span>EDITOR'S PICK</span><span>${esc(q.category)}</span></div><div class="quote-item-body"><blockquote>“${esc(q.cn)}”</blockquote><p class="quote-en">${esc(q.en)}</p><p class="quote-card-meaning"><b>此句心解</b>${esc(getExplanation(q).slice(0,52))}${getExplanation(q).length>52?'…':''}</p></div><div class="quote-item-bottom"><span>拾语录 · 精选${q.from ? ' · ' + esc(q.from) : ''}</span><span class="quote-actions"><button class="save-quote ${saved.includes(q.id)?'saved':''}" data-id="${esc(q.id)}" type="button" aria-label="收藏">${saved.includes(q.id)?'♥':'♡'}</button><button class="share-quote" data-share="${esc(q.cn)}" type="button" aria-label="分享">↗</button></span></div></article>`).join('');
+  picksList.innerHTML = picks.map((q,index)=>`<article class="quote-item" data-quote-id="${esc(q.id)}" style="--qcat:${categoryAccents[q.category]||defaultAccent}"><div class="quote-item-top"><span>EDITOR'S PICK</span><span>${esc(q.category)}</span></div><div class="quote-item-body"><blockquote>“${esc(q.cn)}”</blockquote><p class="quote-en">${esc(q.en)}</p><p class="quote-card-meaning"><b>此句心解</b>${esc(getExplanation(q).slice(0,52))}${getExplanation(q).length>52?'…':''}</p></div><div class="quote-item-bottom"><span>拾语录 · 精选${q.from ? ' · ' + esc(q.from) : ''}</span><span class="quote-actions"><button class="save-quote ${saved.includes(q.id)?'saved':''}" data-id="${esc(q.id)}" type="button" aria-label="收藏">${saved.includes(q.id)?'♥':'♡'}</button><button class="share-quote" data-share="${esc(q.cn)}" type="button" aria-label="分享">↗</button></span></div></article>`).join('');
 }
 
 function renderDaily(){
@@ -1854,6 +1854,10 @@ function openQuote(id){
   renderStats();
   renderResumeReading();
   document.querySelector('#modalTag').textContent=activeQuote.tag;
+  const qcat=categoryAccents[activeQuote.category]||defaultAccent;
+  const modalTagEl=document.querySelector('#modalTag');
+  modalTagEl.style.borderColor=qcat;
+  modalTagEl.style.color=qcat;
   document.querySelector('#modalCn').textContent=activeQuote.cn;
   document.querySelector('#modalEn').textContent=activeQuote.en;
   document.querySelector('#modalFrom').textContent=activeQuote.from||'拾语录';

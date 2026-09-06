@@ -1,4 +1,4 @@
-const CACHE = 'shiyulu-v25';
+const CACHE = 'shiyulu-v38';
 const BASE = new URL('./', self.location.href);
 const OFFLINE_URL = new URL('index.html', BASE).toString();
 const ASSETS = [
@@ -6,12 +6,20 @@ const ASSETS = [
   'index.html',
   'css/style.css',
   'css/extra.css',
+  'css/literary.css',
   'css/stories.css',
   'js/quotes.js',
   'js/emotional-quotes.js',
   'js/script.js',
+  'js/more-quotes.js',
+  'js/literary-quotes.js',
   'js/extra-stories.js',
   'js/emotional-stories.js',
+  'js/new-stories.js',
+  'js/solar-terms.js',
+  'js/zen-mode.js',
+  'js/calendar.js',
+  'js/palette.js',
   'assets/warmth-note.png',
   'assets/icon-192.png',
   'assets/icon-512.png',

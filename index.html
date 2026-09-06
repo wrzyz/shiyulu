@@ -17,8 +17,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:wght@500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/extra.css?v=25">
+  <link rel="stylesheet" href="css/style.css?v=36">
+  <link rel="stylesheet" href="css/extra.css?v=36">
+  <link rel="stylesheet" href="css/literary.css?v=36">
   <link rel="stylesheet" href="css/stories.css">
   <script>document.documentElement.classList.add('js')</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"拾语录","description":"收集被生活照亮的句子","inLanguage":"zh-CN"}</script>
@@ -40,11 +41,13 @@
       <nav class="main-nav" aria-label="主导航">
         <a class="active" href="#top">首页</a>
         <a href="#explore">分类</a>
+        <a href="#literary">书摘</a>
         <a href="#stories">故事</a>
         <a href="#collection" data-nav="saved">收藏</a>
         <a href="#about">关于</a>
       </nav>
       <div class="header-actions">
+        <button class="icon-button" id="zenBtn" type="button" aria-label="沉浸阅读" title="沉浸阅读 (禅模式)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M4.5 12h15"></path></svg></button>
         <button class="icon-button" id="profileBtn" type="button" aria-label="打开我的拾取档案" title="我的档案">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path></svg>
         </button>
@@ -68,6 +71,7 @@
     <div class="mobile-nav-head"><span>拾语录 · 导航</span><button class="icon-button mobile-nav-close" id="mobileNavClose" type="button" aria-label="关闭导航">×</button></div>
     <a href="#top">首页</a>
     <a href="#explore">分类</a>
+    <a href="#literary">书摘</a>
     <a href="#stories">故事</a>
     <a href="#collection" data-nav="saved">收藏</a>
     <a href="#about">关于</a>
@@ -155,9 +159,11 @@
         <a href="#daily"><span>01</span>今日语录</a>
         <a href="#explore"><span>02</span>按心情拾取</a>
         <a href="#picks"><span>03</span>编辑精选</a>
-        <a href="#stories"><span>04</span>小故事</a>
-        <a href="#community"><span>05</span>大家拾到的</a>
-        <a href="#about"><span>06</span>关于</a>
+        <a href="#literary"><span>04</span>名家书摘</a>
+        <a href="#stories"><span>05</span>小故事</a>
+        <a href="#terms"><span>06</span>时令笺</a>
+        <a href="#community"><span>07</span>大家拾到的</a>
+        <a href="#about"><span>08</span>关于</a>
       </nav>
     </section>
 
@@ -170,7 +176,7 @@
       <div class="mood-compass-copy">
         <p class="eyebrow">A NOTE FOR THIS MOMENT</p>
         <h2 id="moodCompassTitle">此刻，你想被怎样接住？</h2>
-        <p>选一种需要，档案馆会从一千多句话里，为你拾起更贴近此刻的一句。</p>
+        <p>选一种此刻的需要，档案馆会从一千二百多句话里，为你拾起最贴近当下的一句。</p>
         <div class="mood-compass-options" role="group" aria-label="选择此刻需要">
           <button class="active" type="button" data-mood-intent="安慰" data-category-pool="治愈,亲情,友谊">想被安慰</button>
           <button type="button" data-mood-intent="勇气" data-category-pool="勇气,成长,希望">想找勇气</button>
@@ -205,7 +211,7 @@
         </div>
       </div>
     </section>
-      <div class="section-heading"><span class="section-index">01</span><div><p class="eyebrow">THE DAILY NOTE</p><h2>今日语录</h2></div><span class="heading-rule"></span><span class="heading-meta">每日更新</span></div>
+      <div class="section-heading"><span class="section-index">01</span><div><p class="eyebrow">THE DAILY NOTE</p><h2>今日语录</h2></div><span class="heading-rule"></span><span class="heading-meta">每日更新</span><button class="sort-button" id="openCalendar" type="button">语录日历 <span>↗</span></button></div>
       <article class="daily-card">
         <div class="daily-side">
           <span class="side-label">拾语录 · DAILY</span>
@@ -267,15 +273,27 @@
       <div class="quote-list picks-grid" id="picksList" aria-live="polite"></div>
     </section>
 
+    <section class="literary section-wrap" id="literary">
+      <div class="section-heading"><span class="section-index">04</span><div><p class="eyebrow">LITERARY EXCERPTS</p><h2>名家书摘</h2></div><span class="heading-rule"></span><span class="heading-meta">带出处的句子 · 点击可收藏</span></div>
+      <p class="literary-intro"><span>从史铁生的地坛，到苏轼的烟雨，再到《小王子》的玫瑰——这些句子都来自真实的书页。出处写在旁边，<b>欢迎按图索骥，回到原书里去。</b></span></p>
+      <div class="literary-grid" id="literaryList"></div>
+    </section>
+
     <section class="stories section-wrap" id="stories">
-      <div class="section-heading"><span class="section-index">04</span><div><p class="eyebrow">SMALL STORIES</p><h2>句子背后，住着一些心事</h2></div><span class="heading-rule"></span><span class="heading-meta">慢慢读，别急着懂</span></div>
+      <div class="section-heading"><span class="section-index">05</span><div><p class="eyebrow">SMALL STORIES</p><h2>句子背后，住着一些心事</h2></div><span class="heading-rule"></span><span class="heading-meta">慢慢读，别急着懂</span></div>
       <div class="story-toolbar"><div class="story-tabs" id="storyTabs"><button class="story-tab active" data-story-category="全部" type="button">全部</button><button class="story-tab" data-story-category="相遇" type="button">相遇</button><button class="story-tab" data-story-category="成长" type="button">成长</button><button class="story-tab" data-story-category="治愈" type="button">治愈</button><button class="story-tab" data-story-category="生活" type="button">生活</button><button class="story-tab" data-story-category="告别" type="button">告别</button><button class="story-tab" data-story-category="亲情" type="button">亲情</button><button class="story-tab" data-story-category="友谊" type="button">友谊</button><button class="story-tab" data-story-category="希望" type="button">希望</button></div><button class="sort-button" id="randomStory" type="button">随机读一篇 <span>↗</span></button></div>
       <div class="story-grid" id="storyGrid" aria-live="polite"></div>
     </section>
 
     <section class="month section-wrap" id="month">
-      <div class="section-heading"><span class="section-index">05</span><div><p class="eyebrow">THEME OF THE MONTH</p><h2>本月主题</h2></div><span class="heading-rule"></span><span class="heading-meta" id="monthLabel">每月更新</span></div>
+      <div class="section-heading"><span class="section-index">06</span><div><p class="eyebrow">THEME OF THE MONTH</p><h2>本月主题</h2></div><span class="heading-rule"></span><span class="heading-meta" id="monthLabel">每月更新</span></div>
       <div class="month-card"><span class="month-stamp">本月</span><div class="month-quotes" id="monthList"></div></div>
+    </section>
+
+    <section class="terms section-wrap" id="terms">
+      <div class="section-heading"><span class="section-index">07</span><div><p class="eyebrow">SOLAR TERMS</p><h2>时令笺</h2></div><span class="heading-rule"></span><span class="heading-meta">二十四节气 · 随日期更替</span></div>
+      <div class="term-card" id="termCard" aria-live="polite"></div>
+      <div class="term-grid" id="termGrid" role="group" aria-label="选择节气"></div>
     </section>
 
     <section class="stat-strip section-wrap" aria-label="网站数据">
@@ -287,7 +305,7 @@
     </section>
 
     <section class="community section-wrap" id="community">
-      <div class="section-heading"><span class="section-index">06</span><div><p class="eyebrow">TOGETHER</p><h2>大家拾到的</h2></div><span class="heading-rule"></span><span class="heading-meta">留言与投稿</span></div>
+      <div class="section-heading"><span class="section-index">08</span><div><p class="eyebrow">TOGETHER</p><h2>大家拾到的</h2></div><span class="heading-rule"></span><span class="heading-meta">留言与投稿</span></div>
       <div class="community-grid">
         <div class="community-panel">
           <h3>留言板</h3>
@@ -300,7 +318,7 @@
         </div>
         <div class="community-panel">
           <h3>投稿墙</h3>
-          <p class="panel-intro">大家投来的句子，会先出现在这里，再被编辑拾起。</p>
+          <p class="panel-intro">把没想清楚的句子也可以投过来。这里不设门槛，每一句都会被认真读到——某天，它也许会替另一个人把话说完。</p>
           <ul class="note-list" id="submitList" aria-live="polite"></ul>
         </div>
       </div>
@@ -311,10 +329,25 @@
       <button class="submit-button" id="openSubmit" type="button"><span>投稿一句话</span><b>↗</b></button>
     </section>
 
-    <section class="about-section section-wrap" id="about"><div class="about-number">07</div><div><p class="eyebrow">ABOUT SHI YU LU</p><h2>愿每一句话，<br>都有人听见。</h2></div><p class="about-text">拾语录是一间开放的句子收藏室。我们相信，文字不必宏大，它只需要在恰好的时刻，轻轻落进一个人的心里。每一句被拾起的语录，都曾照亮过某个人的某一天。</p><img class="about-photo" src="assets/warmth-note.png" alt="手写的温暖句子"></section>
+    <section class="about-section section-wrap" id="about"><div class="about-number">09</div><div><p class="eyebrow">ABOUT SHI YU LU</p><h2>愿每一句话，<br>都有人听见。</h2></div><p class="about-text">拾语录是一间不打烊的句子收藏室。我们相信，文字不必宏大，它只需要在恰好的时刻，轻轻落进一个人的心里。这里的一千多句话，有的来自书页与诗行，有的来自普通人的深夜心事——它们被收进来只有一个理由：曾照亮过某个人的某一天。</p><img class="about-photo" src="assets/warmth-note.png" alt="手写的温暖句子"></section>
   </main>
 
-  <footer class="site-footer section-wrap"><div class="footer-brand">拾语录 <span>SHI YU LU</span></div><p>收集被生活照亮的句子</p><span>© 2026</span></footer>
+  <footer class="site-footer section-wrap" id="siteFooter">
+    <div class="footer-top">
+      <div class="footer-brand">拾语录 <span>SHI YU LU</span></div>
+      <p class="footer-line">收集被生活照亮的句子 —— 愿每一句话，都有人听见。</p>
+    </div>
+    <nav class="footer-nav" aria-label="页脚导航">
+      <a href="#daily">今日语录</a>
+      <a href="#explore">按心情拾取</a>
+      <a href="#literary">名家书摘</a>
+      <a href="#stories">小故事</a>
+      <a href="#community">留言板</a>
+      <a href="#daily" data-open-calendar>语录日历</a>
+      <a href="#top">回到顶部 ↑</a>
+    </nav>
+    <div class="footer-bottom"><span>© 2026 拾语录 · SHIYU ARCHIVE</span><span>一些句子经核对标注了真实出处，欢迎回到原书。</span></div>
+  </footer>
 
   <dialog class="modal profile-modal" id="profileModal">
     <button class="modal-close" data-close="profileModal" type="button" aria-label="关闭">×</button>
@@ -326,6 +359,7 @@
       <div class="preference-row"><span>正文字号</span><div class="font-stepper"><button id="profileFontMinus" type="button" aria-label="缩小正文字号">A−</button><output id="profileFontValue" aria-live="polite">16px</output><button id="profileFontPlus" type="button" aria-label="放大正文字号">A+</button></div></div>
       <div class="preference-row"><span>阅读行距</span><div class="preference-segment" role="group" aria-label="阅读行距"><button type="button" data-reading-mode="standard" aria-pressed="true">标准</button><button type="button" data-reading-mode="relaxed" aria-pressed="false">舒展</button></div></div>
       <div class="preference-row"><span>页面主题</span><button class="preference-theme" id="profileThemeToggle" type="button">切换为夜间模式</button></div>
+      <div class="preference-row"><span>配色方案</span><div class="preference-segment" role="group" aria-label="配色方案"><button type="button" data-palette-btn="warm" aria-pressed="true">暖陶</button><button type="button" data-palette-btn="indigo" aria-pressed="false">黛青</button></div></div>
     </div>
     <div class="profile-block profile-journal">
       <div class="profile-block-heading"><h3>今日手记</h3><span id="journalDate"></span></div>
@@ -347,12 +381,20 @@
   <dialog class="modal submit-modal" id="submitModal"><button class="modal-close" data-close="submitModal" type="button" aria-label="关闭">×</button><p class="eyebrow">SHARE YOUR WORDS</p><h2>投稿一句话</h2><form id="submitForm"><label>你的句子<textarea required maxlength="120" placeholder="写下此刻想说的话……"></textarea></label><label>署名（可选）<input maxlength="30" placeholder="匿名"></label><button class="form-submit" type="submit">提交收藏 <span>↗</span></button></form><p class="modal-hint" id="submitMessage" aria-live="polite"></p></dialog>
   <dialog class="modal quote-modal" id="quoteModal"><button class="modal-close" data-close="quoteModal" type="button" aria-label="关闭">×</button><p class="eyebrow" id="modalTag">标签</p><h2 class="modal-quote" id="modalCn">语录</h2><p class="modal-quote-en" id="modalEn">English</p><p class="modal-from">出处 · <span id="modalFrom">拾语录</span></p><div class="quote-meaning"><p class="modal-explanation-label">这句话想说</p><p class="modal-explanation" id="modalExplanation"></p><p class="modal-scene" id="modalScene"></p></div><div class="modal-actions"><button class="sort-button" id="modalSave" type="button">♡ 收藏</button><button class="sort-button" id="modalCopy" type="button">复制</button><button class="sort-button" id="modalShare" type="button">分享</button><button class="sort-button" id="modalImage" type="button">生成语录卡</button></div><div class="quote-note"><label for="quoteNote">我的句边批注</label><textarea id="quoteNote" maxlength="240" placeholder="写下此刻为什么想留住它……"></textarea><div><span id="quoteNoteCount">0 / 240</span><button class="sort-button" id="saveQuoteNote" type="button">保存批注</button></div></div><div class="related-quotes"><p class="modal-hint">相似语录</p><div id="relatedList"></div></div></dialog>
   <dialog class="modal story-modal" id="storyModal"><button class="modal-close" data-close="storyModal" type="button" aria-label="关闭">×</button><p class="eyebrow" id="storyModalCategory">SMALL STORY</p><h2 id="storyModalTitle">故事标题</h2><p class="story-modal-meta" id="storyModalMeta"></p><div class="story-modal-body" id="storyModalBody"></div><div class="story-modal-quote" id="storyModalQuote"></div><button class="form-submit" id="storyModalCollect" type="button">拾起这句话 <span>↗</span></button></dialog>
+  <dialog class="modal calendar-modal" id="calendarModal"><button class="modal-close" data-close="calendarModal" type="button" aria-label="关闭">×</button><p class="eyebrow">DAILY PAGE · 365</p><h2>语录日历</h2><p class="modal-hint">一年 365 页，每天一签。色块是当天语录的分类心情——点开任何一格，都是那天的句子。</p><div class="calendar-year" id="calendarYear"></div><div class="calendar-detail" id="calendarDetail" aria-live="polite"></div></dialog>
   <div class="toast" id="toast" role="status"></div>
   <button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
   <script src="js/quotes.js"></script>
   <script src="js/emotional-quotes.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/more-quotes.js"></script>
+  <script src="js/literary-quotes.js"></script>
   <script src="js/extra-stories.js"></script>
   <script src="js/emotional-stories.js"></script>
+  <script src="js/new-stories.js"></script>
+  <script src="js/solar-terms.js"></script>
+  <script src="js/zen-mode.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/palette.js"></script>
 </body>
 </html>

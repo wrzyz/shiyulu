@@ -205,11 +205,11 @@ html[data-theme="dark"] .hero-toc{background:var(--night-2)}
 /* daily letter */
 .daily{padding:92px 0 116px}
 .daily-card{position:relative;display:grid;grid-template-columns:300px 1fr;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-slip);overflow:hidden}
-.daily-side{position:relative;background:var(--night);color:#dde9df;padding:36px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
+.daily-side{position:relative;background:var(--night);color:#f4e6d8;padding:36px 30px;display:flex;flex-direction:column;justify-content:space-between;gap:26px}
 .daily-side:after{content:'今日拾得';position:absolute;right:-26px;bottom:26px;width:104px;height:104px;border:2px solid var(--accent);border-radius:50%;display:grid;place-items:center;transform:rotate(-14deg);color:var(--accent);font-size:13px;text-align:center;background:color-mix(in srgb,var(--night) 86%,transparent)}
-.side-label{font:10px var(--mono);color:#9fb3a2}
-.side-mark{font-family:var(--display);font-size:70px;line-height:1;color:#eec4ac}
-.side-note{font:11px var(--mono);color:#9fb3a2}
+.side-label{font:10px var(--mono);color:#c9a896}
+.side-mark{font-family:var(--display);font-size:70px;line-height:1;color:#f0c3a4}
+.side-note{font:11px var(--mono);color:#c9a896}
 .daily-main{padding:44px 56px 40px 50px}
 .daily-card-top,.daily-card-bottom{display:flex;justify-content:space-between;align-items:center}
 .daily-card-top{font:10px var(--mono);color:var(--faint);margin-bottom:26px}
@@ -333,10 +333,10 @@ html[data-theme="dark"] .hero-toc{background:var(--night-2)}
 .story-modal-body p{margin:0 0 20px}
 .story-modal-body p:first-child::first-letter{font-family:var(--display);font-size:3em;line-height:.9;float:left;margin:6px 10px 0 0;color:var(--accent)}
 .story-modal-quote{background:var(--night);color:#dde9df;border-radius:var(--radius);padding:22px 24px;margin:28px 0;position:relative}
-.story-modal-quote span{display:block;font:9px var(--mono);color:#eec4ac;margin-bottom:12px}
+.story-modal-quote span{display:block;font:9px var(--mono);color:#f0c3a4;margin-bottom:12px}
 .story-modal-quote blockquote{font-size:19px;line-height:1.75;margin:0 0 8px}
-.story-modal-quote small{font:13px/1.6 var(--display);color:#9fb3a2;font-style:italic}
-.story-quote-meaning{font-size:13px;line-height:1.9;color:#c4d4c6;border-top:1px solid rgba(244,246,241,.14);padding-top:13px;margin:14px 0 0}
+.story-modal-quote small{font:13px/1.6 var(--display);color:#c9a896;font-style:italic}
+.story-quote-meaning{font-size:13px;line-height:1.9;color:#e6cdbf;border-top:1px solid rgba(250,240,227,.16);padding-top:13px;margin:14px 0 0}
 .story-modal .form-submit{margin-top:4px}
 
 /* month archive band */
@@ -345,8 +345,8 @@ html[data-theme="dark"] .hero-toc{background:var(--night-2)}
 .month-stamp{position:absolute;right:28px;top:20px;font:10px var(--mono);color:#9fb3a2}
 .month-quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;width:100%}
 .month-quote{border-left:2px solid var(--accent);padding:4px 0 6px 22px}
-.month-quote blockquote{font-size:17px;line-height:1.85;margin:0 0 10px;color:#f2f5ef}
-.month-quote p{font:13px/1.7 var(--display);color:#9fb3a2;font-style:italic;margin:0}
+.month-quote blockquote{font-size:17px;line-height:1.85;margin:0 0 10px;color:#fdf1e3}
+.month-quote p{font:13px/1.7 var(--display);color:#c9a896;font-style:italic;margin:0}
 
 /* stats */
 .stat-strip{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:92px auto 110px}
@@ -592,7 +592,7 @@ html.js .category-card.in:hover{transform:translateY(-3px)}
 html{scroll-padding-top:92px}
 .skip-link{position:fixed;left:14px;top:-60px;z-index:100;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:var(--radius);font-size:13px;transition:top .2s}
 .skip-link:focus{top:12px}
-.online-status{position:fixed;left:50%;top:74px;transform:translateX(-50%);z-index:90;background:var(--night);color:#dde9df;padding:8px 14px;font:10px var(--mono);border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow-lift)}
+.online-status{position:fixed;left:50%;top:74px;transform:translateX(-50%);z-index:90;background:var(--night);color:#f4e6d8;padding:8px 14px;font:10px var(--mono);border-radius:0 0 var(--radius) var(--radius);box-shadow:var(--shadow-lift)}
 .menu-button{display:none}
 button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 
