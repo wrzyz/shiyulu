@@ -43,10 +43,12 @@
         <a href="#explore">分类</a>
         <a href="#literary">书摘</a>
         <a href="#stories">故事</a>
+        <a href="#radio">电台</a>
         <a href="#collection" data-nav="saved">收藏</a>
         <a href="#about">关于</a>
       </nav>
       <div class="header-actions">
+        <button class="icon-button fortune-btn" id="fortuneBtn" type="button" aria-label="今日一签" title="今日一签">签</button>
         <button class="icon-button" id="zenBtn" type="button" aria-label="沉浸阅读" title="沉浸阅读 (禅模式)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M4.5 12h15"></path></svg></button>
         <button class="icon-button" id="profileBtn" type="button" aria-label="打开我的拾取档案" title="我的档案">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"></path></svg>
@@ -73,6 +75,7 @@
     <a href="#explore">分类</a>
     <a href="#literary">书摘</a>
     <a href="#stories">故事</a>
+    <a href="#radio">电台</a>
     <a href="#collection" data-nav="saved">收藏</a>
     <a href="#about">关于</a>
   </nav>
@@ -161,9 +164,10 @@
         <a href="#picks"><span>03</span>编辑精选</a>
         <a href="#literary"><span>04</span>名家书摘</a>
         <a href="#stories"><span>05</span>小故事</a>
-        <a href="#terms"><span>06</span>时令笺</a>
-        <a href="#community"><span>07</span>大家拾到的</a>
-        <a href="#about"><span>08</span>关于</a>
+        <a href="#radio"><span>06</span>拾光电台</a>
+        <a href="#terms"><span>07</span>时令笺</a>
+        <a href="#community"><span>08</span>大家拾到的</a>
+        <a href="#about"><span>09</span>关于</a>
       </nav>
     </section>
 
@@ -296,6 +300,12 @@
       <div class="term-grid" id="termGrid" role="group" aria-label="选择节气"></div>
     </section>
 
+    <section class="radio-section section-wrap" id="radio">
+      <div class="section-heading"><span class="section-index">08</span><div><p class="eyebrow">PICKUP RADIO</p><h2>拾光电台</h2></div><span class="heading-rule"></span><span class="heading-meta">深夜独白 · 人间信箱 · 可朗读</span></div>
+      <div class="radio-toolbar"><div class="radio-tabs"><button class="radio-tab active" data-mode="ep" type="button">电台独白 <i>12</i></button><button class="radio-tab" data-mode="mail" type="button">人间信箱 <i>8</i></button></div><button class="sort-button" id="fortuneOpen2" type="button">抽支签再走 <span>✦</span></button></div>
+      <div class="radio-grid" id="radioGrid" aria-live="polite"></div>
+    </section>
+
     <section class="stat-strip section-wrap" aria-label="网站数据">
       <div><strong id="statQuotes">400</strong><span>条语录</span></div>
       <div><strong id="statCategories">22</strong><span>个分类</span></div>
@@ -305,7 +315,7 @@
     </section>
 
     <section class="community section-wrap" id="community">
-      <div class="section-heading"><span class="section-index">08</span><div><p class="eyebrow">TOGETHER</p><h2>大家拾到的</h2></div><span class="heading-rule"></span><span class="heading-meta">留言与投稿</span></div>
+      <div class="section-heading"><span class="section-index">09</span><div><p class="eyebrow">TOGETHER</p><h2>大家拾到的</h2></div><span class="heading-rule"></span><span class="heading-meta">留言与投稿</span></div>
       <div class="community-grid">
         <div class="community-panel">
           <h3>留言板</h3>
@@ -329,7 +339,7 @@
       <button class="submit-button" id="openSubmit" type="button"><span>投稿一句话</span><b>↗</b></button>
     </section>
 
-    <section class="about-section section-wrap" id="about"><div class="about-number">09</div><div><p class="eyebrow">ABOUT SHI YU LU</p><h2>愿每一句话，<br>都有人听见。</h2></div><p class="about-text">拾语录是一间不打烊的句子收藏室。我们相信，文字不必宏大，它只需要在恰好的时刻，轻轻落进一个人的心里。这里的一千多句话，有的来自书页与诗行，有的来自普通人的深夜心事——它们被收进来只有一个理由：曾照亮过某个人的某一天。</p><img class="about-photo" src="assets/warmth-note.png" alt="手写的温暖句子"></section>
+    <section class="about-section section-wrap" id="about"><div class="about-number">10</div><div><p class="eyebrow">ABOUT SHI YU LU</p><h2>愿每一句话，<br>都有人听见。</h2></div><p class="about-text">拾语录是一间不打烊的句子收藏室。我们相信，文字不必宏大，它只需要在恰好的时刻，轻轻落进一个人的心里。这里的一千多句话，有的来自书页与诗行，有的来自普通人的深夜心事——它们被收进来只有一个理由：曾照亮过某个人的某一天。</p><img class="about-photo" src="assets/warmth-note.png" alt="手写的温暖句子"></section>
   </main>
 
   <footer class="site-footer section-wrap" id="siteFooter">
@@ -382,6 +392,7 @@
   <dialog class="modal quote-modal" id="quoteModal"><button class="modal-close" data-close="quoteModal" type="button" aria-label="关闭">×</button><p class="eyebrow" id="modalTag">标签</p><h2 class="modal-quote" id="modalCn">语录</h2><p class="modal-quote-en" id="modalEn">English</p><p class="modal-from">出处 · <span id="modalFrom">拾语录</span></p><div class="quote-meaning"><p class="modal-explanation-label">这句话想说</p><p class="modal-explanation" id="modalExplanation"></p><p class="modal-scene" id="modalScene"></p></div><div class="modal-actions"><button class="sort-button" id="modalSave" type="button">♡ 收藏</button><button class="sort-button" id="modalCopy" type="button">复制</button><button class="sort-button" id="modalShare" type="button">分享</button><button class="sort-button" id="modalImage" type="button">生成语录卡</button></div><div class="quote-note"><label for="quoteNote">我的句边批注</label><textarea id="quoteNote" maxlength="240" placeholder="写下此刻为什么想留住它……"></textarea><div><span id="quoteNoteCount">0 / 240</span><button class="sort-button" id="saveQuoteNote" type="button">保存批注</button></div></div><div class="related-quotes"><p class="modal-hint">相似语录</p><div id="relatedList"></div></div></dialog>
   <dialog class="modal story-modal" id="storyModal"><button class="modal-close" data-close="storyModal" type="button" aria-label="关闭">×</button><p class="eyebrow" id="storyModalCategory">SMALL STORY</p><h2 id="storyModalTitle">故事标题</h2><p class="story-modal-meta" id="storyModalMeta"></p><div class="story-modal-body" id="storyModalBody"></div><div class="story-modal-quote" id="storyModalQuote"></div><button class="form-submit" id="storyModalCollect" type="button">拾起这句话 <span>↗</span></button></dialog>
   <dialog class="modal calendar-modal" id="calendarModal"><button class="modal-close" data-close="calendarModal" type="button" aria-label="关闭">×</button><p class="eyebrow">DAILY PAGE · 365</p><h2>语录日历</h2><p class="modal-hint">一年 365 页，每天一签。色块是当天语录的分类心情——点开任何一格，都是那天的句子。</p><div class="calendar-year" id="calendarYear"></div><div class="calendar-detail" id="calendarDetail" aria-live="polite"></div></dialog>
+  <dialog class="modal fortune-modal" id="fortuneModal"><button class="modal-close" data-close="fortuneModal" type="button" aria-label="关闭">×</button><p class="eyebrow">DAILY FORTUNE</p><h2>今日一签</h2><p class="modal-hint">心里默念今天，再抽一支签——这里的签，签签都往好处解。</p><div id="fortuneResult" aria-live="polite"></div></dialog>
   <div class="toast" id="toast" role="status"></div>
   <button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
   <script src="js/quotes.js"></script>
@@ -396,5 +407,7 @@
   <script src="js/zen-mode.js"></script>
   <script src="js/calendar.js"></script>
   <script src="js/palette.js"></script>
+  <script src="js/radio.js"></script>
+  <script src="js/fortune.js"></script>
 </body>
 </html>

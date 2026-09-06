@@ -1,4 +1,4 @@
-const CACHE = 'shiyulu-v38';
+const CACHE = 'shiyulu-v39';
 const BASE = new URL('./', self.location.href);
 const OFFLINE_URL = new URL('index.html', BASE).toString();
 const ASSETS = [
@@ -20,6 +20,8 @@ const ASSETS = [
   'js/zen-mode.js',
   'js/calendar.js',
   'js/palette.js',
+  'js/radio.js',
+  'js/fortune.js',
   'assets/warmth-note.png',
   'assets/icon-192.png',
   'assets/icon-512.png',

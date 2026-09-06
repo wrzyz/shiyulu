@@ -205,6 +205,56 @@ html[data-palette="indigo"] .toast{color:#e4ecf3}
 html[data-palette="indigo"] .online-status{color:#e4ecf3}
 html[data-palette="indigo"] .story-card::after,html[data-palette="indigo"] .term-card::after{color:var(--accent)}
 
+/* ===== 拾光电台 ===== */
+.radio-section{padding:48px 0 96px}
+.radio-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.radio-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.radio-tab{background:var(--surface);border:1px solid var(--line);border-radius:99px;color:var(--muted);font-size:12.5px;padding:9px 18px;transition:all .2s}
+.radio-tab i{font-style:normal;font:9px var(--mono);opacity:.7;margin-left:4px}
+.radio-tab:hover{border-color:var(--accent);color:var(--accent)}
+.radio-tab.active{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.radio-tab.active i{opacity:.8}
+.radio-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.radio-card{position:relative;display:flex;flex-direction:column;gap:12px;background:linear-gradient(168deg,var(--night-2) 0%,var(--night) 130%);color:#f4e6d8;border-radius:var(--radius);padding:26px 26px 22px;overflow:hidden;min-height:230px;transition:transform .25s,box-shadow .25s}
+.radio-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.radio-card::after{content:'♪';position:absolute;right:20px;top:14px;font-size:44px;color:var(--accent);opacity:.25;pointer-events:none}
+.radio-top{display:flex;align-items:baseline;gap:12px}
+.radio-no{font:11px var(--mono);color:var(--accent);letter-spacing:.1em}
+.radio-topic{font-size:17px;font-weight:600;color:#fbf0e4;font-family:var(--serif)}
+.radio-meta{margin-left:auto;font:9px var(--mono);color:rgba(244,230,216,.55)}
+.radio-text{margin:0;font-size:13.5px;line-height:2.05;color:rgba(248,238,232,.92);flex:1}
+.radio-actions{display:flex;gap:14px}
+.radio-btn{font:11px var(--mono);color:#e6cdbf;background:none;border-bottom:1px solid rgba(244,230,216,.3);padding:4px 0;transition:color .2s,border-color .2s}
+.radio-btn:hover{color:#ffae96;border-color:#ffae96}
+.radio-btn.playing{color:#ffae96;border-color:#ffae96}
+.mail-card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px 22px;box-shadow:var(--shadow-slip);display:flex;flex-direction:column;gap:12px;transition:transform .25s,box-shadow .25s}
+.mail-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lift)}
+.mail-top{display:flex;justify-content:space-between;align-items:baseline;font:10px var(--mono);color:var(--faint)}
+.mail-from{color:var(--accent);letter-spacing:.06em}
+.mail-q{margin:0;font-size:13.5px;line-height:1.95;color:var(--ink);border-left:2px solid var(--line-strong);padding-left:14px}
+.mail-answer{border-top:1px dashed var(--line);padding-top:16px;position:relative}
+.mail-stamp{position:absolute;right:0;top:12px;font:9px var(--mono);color:#fffaf3;background:var(--accent);padding:3px 9px;border-radius:4px;transform:rotate(3deg)}
+.mail-a{margin:0;font-size:13px;line-height:2;color:var(--muted);padding-right:70px}
+@media(max-width:900px){.radio-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.radio-card{padding:22px 18px 18px}.mail-a{padding-right:0}.mail-stamp{position:static;display:inline-block;margin-bottom:8px;transform:none}}
+
+/* ===== 今日一签 ===== */
+.fortune-btn{font-size:15px;font-weight:600}
+.fortune-modal{max-width:480px;text-align:center}
+.fortune-modal .modal-hint{margin-bottom:18px}
+.fortune-card{background:var(--paper);border:1px solid var(--line-strong);border-radius:var(--radius);padding:34px 28px 26px;position:relative;overflow:hidden;animation:fortuneIn .55s cubic-bezier(.2,.7,.2,1) both}
+.fortune-card::before{content:'签';position:absolute;right:14px;top:12px;width:34px;height:34px;display:grid;place-items:center;background:var(--accent);color:#fffaf3;font-size:17px;border-radius:5px;transform:rotate(6deg)}
+@keyframes fortuneIn{0%{opacity:0;transform:translateY(-16px) rotate(-2deg)}60%{transform:translateY(2px) rotate(.5deg)}100%{opacity:1;transform:none}}
+.fortune-no{display:block;font:10px var(--mono);color:var(--faint);letter-spacing:.14em;margin-bottom:10px}
+.fortune-title{display:block;font-size:34px;font-weight:600;letter-spacing:.2em;margin-bottom:14px;color:var(--ink)}
+.fortune-text{margin:0 0 14px;font-size:17px;line-height:1.9;color:var(--ink);font-weight:500}
+.fortune-solve{margin:0 0 16px;font-size:13px;line-height:1.9;color:var(--muted)}
+.fortune-tags{display:flex;justify-content:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.fortune-tags span{font:11px var(--mono);border:1px solid var(--line-strong);border-radius:99px;padding:4px 12px;color:var(--muted)}
+.fortune-tags .do{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.fortune-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){.fortune-card{animation:none}}
+
 /* ===== 编辑精选：期刊跨页版式 ===== */
 .picks{padding-bottom:10px}
 .picks-grid{counter-reset:pick;gap:20px}
@@ -258,7 +308,7 @@ html[data-theme="dark"] .picks-grid .quote-item{background:var(--paper)}
 .footer-nav a:hover{color:var(--accent)}
 .footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px dashed var(--line);padding-top:16px;color:var(--faint);font:10px var(--mono)}
 /* 页内目录：八栏 */
-.hero-toc{grid-template-columns:repeat(8,1fr)}
+.hero-toc{grid-template-columns:repeat(9,1fr)}
 @media(max-width:900px){.hero-toc{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:1080px) and (min-width:901px){.literary-grid{columns:2;column-gap:18px}}
 /* 书摘区响应式 */
